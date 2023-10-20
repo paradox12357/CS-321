@@ -4,9 +4,19 @@ import org.junit.Test;
 
 public class Tester 
 {
-    private static final String WHITE = "\u001B[37m", GREEN = "\u001B[32m", RED = "\u001B[31m", BOLD = "\033[0;1m", PLAIN = "\033[0m";
+    /* ------------- Text Formatting Macros ------------- */
+    private static final String 
+        WHITE   =   "\u001B[37m", 
+        GREEN   =   "\u001B[32m", 
+        RED     =   "\u001B[31m", 
+        BOLD    =   "\033[0;1m", 
+        PLAIN   =   "\033[0m";
 
+    /* ------------- Business Object Tests ------------- */
     @Test
+    /**
+     * @author Joniel Augustine Jerome
+     */
     private static void testAddRequest()
     {
         try 
@@ -24,6 +34,9 @@ public class Tester
     }
 
     @Test
+    /**
+     * @author Joniel Augustine Jerome
+     */
     private static void testUpdateRequest()
     {
         try 
@@ -42,6 +55,9 @@ public class Tester
     }
 
     @Test
+    /**
+     * @author Siddarth Mallemudi
+     */
     private static void testFormRequest()
     {
         try 
@@ -59,7 +75,12 @@ public class Tester
         }
     }
 
+
+    /* ------------- Workflow Object Tests ------------- */
     @Test
+    /**
+     * @author Siddarth Mallemudi
+     */
     private static void testSaveWorkflow()
     {
         try 
@@ -78,6 +99,9 @@ public class Tester
     }
 
     @Test
+    /**
+     * @author Eldon Harlan
+     */
     private static void testRemoveEntry()
     {
         try 
@@ -96,6 +120,7 @@ public class Tester
         }
     }
 
+    /* ------------- Test Runner ------------- */
     public static void main(String[] args)
     {
         System.out.println(BOLD + "TEST NAME\t\tTEST RESULT" + PLAIN);
