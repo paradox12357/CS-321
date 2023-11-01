@@ -88,29 +88,18 @@ class FormFrame extends JFrame
 {
     public FormFrame() 
     {
-        // Set the title of the JFrame
-        setTitle("My Custom JFrame");
+        setTitle("Form");
 
-        // Create a JPanel of your choice
         Form form = new Form();
-        // You can add components to the panel here if needed.
-
-        // Add the panel to the JFrame
         add(form);
 
-        // Set the size of the JFrame
         setSize(new Dimension(400, 300));
-
-        // Make the JFrame close when the close button is clicked
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Set the JFrame to be visible
         setVisible(true);
     }
 
     public static void main(String[] args) 
     {
-        // Create an instance of your custom JFrame
         FormFrame frame = new FormFrame();
     }
 }
