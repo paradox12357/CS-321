@@ -60,26 +60,36 @@ public class DataEntry extends JPanel
         return true;
     }
 
+    public void validateData()
+    {
+        if(!isAlphabetic(first.getText().trim()) || first.getText().length() == 0) 
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter A Valid First Name!");
+        }
+        else if(!isAlphabetic(last.getText().trim()) || last.getText().length() == 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter A Valid Last Name!");
+        }
+        else if(!isNumeric(last4.getText()))
+        {
+            JOptionPane.showMessageDialog(null, "Please Enter A Valid SSN!");
+        }
+        else if(last4.getText().length() > 4)
+        {
+            JOptionPane.showMessageDialog(null, "Only Enter Last 4 Digits of SSN!");
+        }
+    }
+
     private class SubmitListener implements ActionListener 
     {
+        private DataEntry form;
+        public SubmitListener(DataEntry d)
+        {
+            this.form = d;
+        }
         public void actionPerformed(ActionEvent e)
         {
-            if(!isAlphabetic(first.getText().trim()) || first.getText().length() == 0) 
-            {
-                JOptionPane.showMessageDialog(null, "Please Enter A Valid First Name!");
-            }
-            else if(!isAlphabetic(last.getText().trim()) || last.getText().length() == 0)
-            {
-                JOptionPane.showMessageDialog(null, "Please Enter A Valid Last Name!");
-            }
-            else if(!isNumeric(last4.getText()))
-            {
-                JOptionPane.showMessageDialog(null, "Please Enter A Valid SSN!");
-            }
-            else if(last4.getText().length() > 4)
-            {
-                JOptionPane.showMessageDialog(null, "Only Enter Last 4 Digits of SSN!");
-            }
+            form.validate();
         }
     }
 }
