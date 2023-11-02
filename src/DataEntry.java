@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class DataEntry extends JPanel
 {
-    private JLabel first, last, last4;
+    private JTextField firstname, lastname, ssn;
     public DataEntry() 
     {
         setLayout(new BorderLayout());
@@ -14,12 +14,12 @@ public class DataEntry extends JPanel
 
         JPanel questions = new JPanel();
         questions.setLayout(new GridLayout(3,2));
-        first = new JLabel("First Name: ");
-        JTextField firstname = new JTextField(30);
-        last = new JLabel("Last Name: ");
-        JTextField lastname = new JTextField(30);
-        last4 = new JLabel("SSN Last 4 Digits: ");
-        JTextField ssn = new JTextField(30);
+        JLabel first = new JLabel("First Name: ");
+        firstname = new JTextField(30);
+        JLabel last = new JLabel("Last Name: ");
+        lastname = new JTextField(30);
+        JLabel last4 = new JLabel("SSN Last 4 Digits: ");
+        ssn = new JTextField(30);
 
         questions.add(first);
         questions.add(firstname);
@@ -37,9 +37,9 @@ public class DataEntry extends JPanel
 
     public static boolean isAlphabetic(String s)
     {
+        s = s.trim();
         for(int x = 0; x < s.length(); x ++)
         {
-            System.out.println(x + " " + s.charAt(x));
             if(!Character.isAlphabetic(s.charAt(x)))
             {
                 return false;
@@ -50,6 +50,7 @@ public class DataEntry extends JPanel
 
     public static boolean isNumeric(String s)
     {
+        s = s.trim();
         for(int x = 0; x < s.length(); x ++)
         {
             if(!Character.isDigit(s.charAt(x)))
@@ -62,21 +63,25 @@ public class DataEntry extends JPanel
 
     public void validateData()
     {
-        if(!isAlphabetic(first.getText().trim()) || first.getText().length() == 0) 
+        if(!isAlphabetic(firstname.getText()) || firstname.getText().length() == 0) 
         {
             JOptionPane.showMessageDialog(null, "Please Enter A Valid First Name!");
         }
-        else if(!isAlphabetic(last.getText().trim()) || last.getText().length() == 0)
+        else if(!isAlphabetic(lastname.getText()) || lastname.getText().length() == 0)
         {
             JOptionPane.showMessageDialog(null, "Please Enter A Valid Last Name!");
         }
-        else if(!isNumeric(last4.getText()))
+        else if(!isNumeric(ssn.getText()))
         {
             JOptionPane.showMessageDialog(null, "Please Enter A Valid SSN!");
         }
-        else if(last4.getText().length() > 4)
+        else if(ssn.getText().trim().length() < 4)
         {
-            JOptionPane.showMessageDialog(null, "Only Enter Last 4 Digits of SSN!");
+            JOptionPane.showMessageDialog(null, "Please Enter Last 4 Digits Of SSN!");
+        }
+        else if(ssn.getText().trim().length() > 4)
+        {
+            JOptionPane.showMessageDialog(null, "Please Only Enter Last 4 Digits Of SSN!");
         }
     }
 
@@ -89,7 +94,7 @@ public class DataEntry extends JPanel
         }
         public void actionPerformed(ActionEvent e)
         {
-            form.validate();
+            form.validateData();
         }
     }
 }
