@@ -61,6 +61,21 @@ public class DataEntry extends JPanel
         return true;
     }
 
+    public String getFirstName()
+    {
+        return firstname.getText().trim();
+    }
+
+    public String getLastName()
+    {
+        return lastname.getText().trim();
+    }
+
+    public String getSSN()
+    {
+        return ssn.getText().trim();
+    }
+
     public void validateData()
     {
         if(!isAlphabetic(firstname.getText()) || firstname.getText().length() == 0) 
@@ -117,4 +132,6 @@ class FormFrame extends JFrame
     {
         FormFrame frame = new FormFrame();
     }
+
+
 }
