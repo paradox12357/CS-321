@@ -31,7 +31,7 @@ public class DataEntry extends JPanel
         add(questions, BorderLayout.CENTER);
 
         JButton submit = new JButton("SUBMIT");
-        submit.addActionListener(new SubmitListener());
+        submit.addActionListener(new SubmitListener(this));
         add(submit, BorderLayout.SOUTH);
     }
 
