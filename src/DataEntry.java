@@ -84,6 +84,16 @@ public class DataEntry extends JPanel
         return ssn.getText().trim();
     }
 
+    public String getEmail()
+    {
+        return email.getText().trim();
+    }
+
+    public String getID()
+    {
+        return id.getText().trim();
+    }
+
     public void validateData()
     {
         if(!isAlphabetic(firstname.getText()) || firstname.getText().length() == 0) 
