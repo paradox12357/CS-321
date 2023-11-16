@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class DataEntry extends JPanel
 {
-    private JTextField firstname, lastname, ssn;
+    private JTextField firstname, lastname, ssn, email, id;
     public DataEntry() 
     {
         setLayout(new BorderLayout());
@@ -20,6 +20,10 @@ public class DataEntry extends JPanel
         lastname = new JTextField(30);
         JLabel last4 = new JLabel("SSN Last 4 Digits: ");
         ssn = new JTextField(30);
+        JLabel mail = new JLabel("Email: ");
+        email = new JTextField(30);
+        JLabel ide = new JLabel("Email: ");
+        id = new JTextField(30);
 
         questions.add(first);
         questions.add(firstname);
@@ -27,6 +31,10 @@ public class DataEntry extends JPanel
         questions.add(lastname);
         questions.add(last4);
         questions.add(ssn);
+        questions.add(mail);
+        questions.add(email);
+        questions.add(ide);
+        questions.add(id);
 
         add(questions, BorderLayout.CENTER);
 
@@ -127,11 +135,5 @@ class FormFrame extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
-
-    public static void main(String[] args) 
-    {
-        FormFrame frame = new FormFrame();
-    }
-
 
 }
