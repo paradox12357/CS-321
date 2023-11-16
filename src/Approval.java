@@ -82,7 +82,13 @@ public class Approval extends JPanel{
         //return button actions.
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
                 // Implement logic for returning to the previous screen
+
+
+
+
+                
                 clearScreen(frame);
             }
         });
@@ -185,7 +191,7 @@ public class Approval extends JPanel{
      * @return returns string of email.
      */
     public String generateEmail(){
-        return "Documents: " + DRform.getField();
+        return "Hello " + firstname + " " + lastname + ",\n Attached below are the documents that you have requested. If you have not requested these documents or if this email is not meant for you, contact the number below\nDocuments: " + DRform.getField() + "\n\nThank you, \n\n (xxx)xxx - xxx";
     }
 
     /**
