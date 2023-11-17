@@ -9,9 +9,11 @@ class Review extends JPanel
     private String last = "";
     private String social = "";
     private int immigrant;
+    private Workflow workflow;
     JPanel questions = new JPanel();
-    public Review() 
+    public Review(Workflow workflow) 
     {
+        this.workflow = workflow;
         loadData();
         setLayout(new BorderLayout());
         JLabel title = new JLabel("Review the following information:");
@@ -85,9 +87,9 @@ class Review extends JPanel
 
     public void loadData()
     {
-        this.first = "John";
-        this.last = "Doe";
-        this.social = "1234";
+        this.first = workflow.firstname;
+        this.last = workflow.lastname;
+        this.social = workflow.ssn;
     }
 
     public void editData()
@@ -185,6 +187,9 @@ class Review extends JPanel
         public void actionPerformed(ActionEvent e)
         {
             form.pass();
+            workflow.addReview(form);
+            form.setVisible(false);
+            workflow.continueWorkflow = true;
         }
     }
 
@@ -194,24 +199,24 @@ class Review extends JPanel
         JOptionPane.showMessageDialog(null, "Review Complete.");
     }
 
-    public static void showScreen()
+    public static void showScreen(Workflow workflow)
     {
-        ReviewFrame frame = new ReviewFrame();
+        ReviewFrame frame = new ReviewFrame(workflow);
     }
 
     public static void main(String[] args) 
     {
-        showScreen();
+        //showScreen();
     }
 }
 
 class ReviewFrame extends JFrame 
 {
-    public ReviewFrame() 
+    public ReviewFrame(Workflow workflow) 
     {
         setTitle("Review");
 
-        Review form = new Review();
+        Review form = new Review(workflow);
         add(form);
 
         setSize(new Dimension(400, 300));

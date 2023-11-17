@@ -5,8 +5,11 @@ import java.awt.event.*;
 public class DataEntry extends JPanel
 {
     private JTextField firstname, lastname, ssn, email, id;
-    public DataEntry() 
+    private Workflow workflow;
+    public DataEntry(Workflow workflow) 
     {
+        this.workflow = workflow;
+
         setLayout(new BorderLayout());
         JLabel title = new JLabel("Enter Your Details");
         title.setHorizontalAlignment(JLabel.CENTER);
@@ -128,21 +131,24 @@ public class DataEntry extends JPanel
         public void actionPerformed(ActionEvent e)
         {
             form.validateData();
+            workflow.addEntry(form);
+            setVisible(false);
+            workflow.continueWorkflow = true;
         }
     }
 }
 
 class FormFrame extends JFrame 
 {
-    public FormFrame() 
+    public FormFrame(Workflow workflow) 
     {
         setTitle("Form");
 
-        DataEntry form = new DataEntry();
+        DataEntry form = new DataEntry(workflow);
         add(form);
 
         setSize(new Dimension(400, 300));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 

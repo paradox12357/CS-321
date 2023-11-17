@@ -40,7 +40,7 @@ public class Approval extends JPanel{
     /*
      * User's immigrant ID.
      */
-    private int ID;
+    private String ID;
 
     /**
      * boolean for when the screen is no longer needed.
@@ -138,9 +138,9 @@ public class Approval extends JPanel{
     public void loadData(Workflow entry, DocumentRequest DRForm){
         this.DRform = DRForm;
         this.entry = entry;
-        this.SSN = entry.getEntry().getSSN();
-        this.firstname = entry.getEntry().getFirstName();
-        this.lastname = entry.getEntry().getLastName(); 
+        this.SSN = entry.getReview().getSSN();
+        this.firstname = entry.getReview().getFirstName();
+        this.lastname = entry.getReview().getLastName(); 
         this.email = entry.getEntry().getEmail();
         this.ID = entry.getEntry().getID();
     }
@@ -200,6 +200,7 @@ public class Approval extends JPanel{
      */
     public void clearScreen(JFrame frame){
         frame.dispose();
+        entry.continueWorkflow = true;
     }
 
     /**
