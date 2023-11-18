@@ -40,6 +40,7 @@ public class Workflow
         workflow.continueWorkflow = false;
         while(!workflow.continueWorkflow) {System.out.print("");}
         System.out.println("got approval");
+        // submit to database
         return;
     }
 }
