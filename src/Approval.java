@@ -83,12 +83,7 @@ public class Approval extends JPanel{
         returnButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                // Implement logic for returning to the previous screen
-
-
-
-
-                
+                entry.returnScreen();
                 clearScreen(frame);
             }
         });
