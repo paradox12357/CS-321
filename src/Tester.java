@@ -21,8 +21,7 @@ public class Tester
     {
         try 
         {
-            // DocumentRequest test = new DocumentRequest();
-            DocumentRequest test = null;
+            DocumentRequest test = new DocumentRequest();
             
             assertNotNull(test);
             System.out.println("ADD REQUEST\t\t" + GREEN + "TEST PASSED" + WHITE);
@@ -43,7 +42,7 @@ public class Tester
         {
             DocumentRequest test = new DocumentRequest();
             String update = "update";
-            // test.update(update);
+            test.update(update);
 
             assertEquals(update, test.getField());
             System.out.println("UPDATE REQUEST\t\t" + GREEN + "TEST PASSED" + WHITE);
@@ -58,15 +57,14 @@ public class Tester
     /**
      * @author Siddarth Mallemudi
      */
-    private static void testFormRequest()
+    private static void testDataEntryRequest()
     {
         try 
         {
-            // DocumentRequest test = new DocumentRequest();
-            // Form input = test.getForm();
-            Object input = null;
+            DocumentRequest test = new DocumentRequest();
+            DataEntry input = test.getDataEntry();
 
-            if(!(input instanceof Form)) fail();
+            if(!(input instanceof DataEntry)) fail();
             System.out.println("FORM REQUEST\t\t" + GREEN + "TEST PASSED" + WHITE);
         }
         catch(AssertionError e)
@@ -87,7 +85,7 @@ public class Tester
         {
             Workflow test = new Workflow();
             String update = "update";
-            // test.save(update);
+            test.save(update);
 
             assertEquals(update, test.getState());
             System.out.println("SAVE WORKFLOW\t\t" + GREEN + "TEST PASSED" + WHITE);
@@ -108,8 +106,8 @@ public class Tester
         {
             DocumentRequest testObj = new DocumentRequest();
             Workflow test = new Workflow();
-            test.addEntry(testObj.getForm());
-            // test.rmEntry();
+            test.addEntry(testObj.getDataEntry());
+            test.rmEntry();
 
             assertEquals(null, test.getEntry());
             System.out.println("REMOVE ENTRY\t\t" + GREEN + "TEST PASSED" + WHITE);
@@ -126,7 +124,7 @@ public class Tester
         System.out.println(BOLD + "TEST NAME\t\tTEST RESULT" + PLAIN);
         testAddRequest();
         testUpdateRequest();
-        testFormRequest();
+        testDataEntryRequest();
         testSaveWorkflow();
         testRemoveEntry();
     }
