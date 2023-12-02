@@ -25,7 +25,7 @@ public class DataEntry extends JPanel
         ssn = new JTextField(30);
         JLabel mail = new JLabel("Email: ");
         email = new JTextField(30);
-        JLabel ide = new JLabel("Email: ");
+        JLabel ide = new JLabel("ID: ");
         id = new JTextField(30);
 
         questions.add(first);
@@ -138,18 +138,4 @@ public class DataEntry extends JPanel
     }
 }
 
-class FormFrame extends JFrame 
-{
-    public FormFrame(Workflow workflow) 
-    {
-        setTitle("Form");
 
-        DataEntry form = new DataEntry(workflow);
-        add(form);
-
-        setSize(new Dimension(400, 300));
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setVisible(true);
-    }
-
-}
