@@ -196,6 +196,7 @@ public class Approval extends JPanel{
     public void clearScreen(JFrame frame){
         frame.dispose();
         entry.continueWorkflow = true;
+        return;
     }
 
     /**
