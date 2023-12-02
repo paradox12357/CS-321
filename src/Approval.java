@@ -79,14 +79,14 @@ public class Approval extends JPanel{
         displayArea.setText(screenContent);
         displayArea.setHorizontalAlignment(JLabel.CENTER);
 
-        //return button actions.
-        returnButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        // //return button actions.
+        // returnButton.addActionListener(new ActionListener() {
+        //     public void actionPerformed(ActionEvent e) {
 
-                entry.returnScreen();
-                clearScreen(frame);
-            }
-        });
+        //         entry.returnScreen();
+        //         clearScreen(frame);
+        //     }
+        // });
 
         //adds buttons to panel.
         JPanel panel = new JPanel(new FlowLayout());
