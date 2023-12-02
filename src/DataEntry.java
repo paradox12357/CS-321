@@ -11,7 +11,7 @@ public class DataEntry extends JPanel
         this.workflow = workflow;
 
         setLayout(new BorderLayout());
-        JLabel title = new JLabel("Enter Your Details");
+        JLabel title = new JLabel("Enter Your Details:");
         title.setHorizontalAlignment(JLabel.CENTER);
         add(title, BorderLayout.NORTH);
 
